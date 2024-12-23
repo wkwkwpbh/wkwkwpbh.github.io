@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Simpan Pinjam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Aplikasi Simpan Pinjam</h1>
+    </header>
+    <main>
+        
+        <section>
+            <h2>Tambah Simpanan</h2>
+            <form id="form-simpanan" onsubmit="tambahSimpanan(event)">
+                <input type="text" id="nama-anggota" placeholder="Nama Anggota" required>
+                <input type="number" id="jumlah-simpanan" placeholder="Jumlah Simpanan" required>
+                <button type="submit">Simpan</button>
+            </form>
+        </section>
+
+        
+        <section>
+            <h2>Tambah Pinjaman</h2>
+            <form id="form-pinjaman" onsubmit="tambahPinjaman(event)">
+                <input type="text" id="nama-anggota-pinjam" placeholder="Nama Anggota" required>
+                <input type="number" id="jumlah-pinjaman" placeholder="Jumlah Pinjaman" required>
+                <button type="submit">Pinjam</button>
+            </form>
+        </section>
+
+        
+        <section>
+            <h2>Laporan Transaksi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Anggota</th>
+                        <th>Jenis</th>
+                        <th>Jumlah</th>
+                    </tr>
+                </thead>
+                <tbody id="laporan-transaksi">
+                    
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 unpam muhammad evan syabana</p>
+    </footer>
+    <script>
+        let nomor = 1;
+        
+        function tambahSimpanan(event) {
+            event.preventDefault();
+            const nama = document.getElementById("nama-anggota").value;
+            const jumlah = document.getElementById("jumlah-simpanan").value;
+            tambahKeLaporan(nama, "Simpanan", jumlah);
+            event.target.reset();
+        }
+
+        
+        function tambahPinjaman(event) {
+            event.preventDefault();
+            const nama = document.getElementById("nama-anggota-pinjam").value;
+            const jumlah = document.getElementById("jumlah-pinjaman").value;
+            tambahKeLaporan(nama, "Pinjaman", jumlah);
+            event.target.reset();
+        }
+
+        
+        function tambahKeLaporan(nama, jenis, jumlah) {
+            const laporan = document.getElementById("laporan-transaksi");
+            const row = laporan.insertRow();
+            row.innerHTML = `
+                <td>${nomor++}</td>
+                <td>${nama}</td>
+                <td>${jenis}</td>
+                <td>${jumlah}</td>
+            `;
+        }
+    </script>
+</body>
+</html>
