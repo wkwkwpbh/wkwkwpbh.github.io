@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy-Book</title>
+    <style>
+        /* Gaya Umum */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+ 
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #a614d7, #15238c);
+    overflow-x: hidden;
+}
+
+        .app-profile-container {
+            max-width: 650px;
+            width: 90%;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 30px 20px;
+            text-align: center;
+            color: #fff;
+            border-bottom: 5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .app-header img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .app-header h1 {
+            font-size: 28px;
+            margin: 10px 0 5px;
+            font-weight: 600;
+        }
+
+        .app-header p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .app-details {
+            padding: 25px;
+        }
+
+        .app-details h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+
+        .app-details p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-footer {
+            background: #f5f5f5;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        .app-footer a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+        .app-footer a:hover {
+            color: #6a11cb;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-header h1 {
+                font-size: 22px;
+            }
+
+            .app-details h3 {
+                font-size: 16px;
+            }
+
+            .cta-button {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-profile-container">
+        <!-- Header Aplikasi -->
+        <div class="app-header">
+            <img src="logo.jpg" alt="Logo Aplikasi">
+            <h1>Easy-Book</h1>
+            <p>Versi: 2.0.0</p>
+        </div>
+
+        <!-- Detail Aplikasi -->
+        <div class="app-details">
+            <h3>Deskripsi</h3>
+            <p>
+                Aplikasi kami menyediakan solusi terbaik untuk mengelola transaksi dengan antarmuka yang 
+                mudah digunakan dan fitur modern. Dirancang untuk memberikan pengalaman pengguna yang luar biasa.
+            </p>
+            <h3>Fitur Utama</h3>
+            <p>
+                • Kelola transaksi dengan cepat<br>
+                • Desain yang modern dan intuitif<br>
+                • Dukungan penuh untuk pengguna<br>
+                • Keamanan data tingkat tinggi
+            </p>
+            <a href="#" class="cta-button">Pelajari Lebih Lanjut</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="app-footer">
+            <p>&copy; 2025 Nama Aplikasi. Semua Hak Dilindungi.</p>
+            <a href="#">Kebijakan Privasi</a> | 
+            <a href="#">Syarat & Ketentuan</a> | 
+            <a href="#">Hubungi Kami</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy-Book</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Kontainer Login -->
+    <div class="container">
+        <!-- Form Login -->
+        <div class="form-container active" id="login-form">
+            <h2>Login</h2>
+            <form id="login" action="beranda.html" method="GET">
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Kata Sandi" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="footer-links">
+                <a href="javascript:void(0)" onclick="showRegisterForm()">Daftar</a> | 
+                <a href="javascript:void(0)" onclick="showForgotPasswordForm()">Lupa Kata Sandi?</a>
+            </div>
+        </div>
+
+        <!-- Form Daftar -->
+        <div class="form-container" id="register-form">
+            <h2>Daftar</h2>
+            <form id="register" action="beranda.html" method="GET">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Nama Pengguna" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Kata Sandi" required>
+                </div>
+                <button type="submit" class="btn">Daftar</button>
+            </form>
+            <div class="footer-links">
+                <a href="javascript:void(0)" onclick="showLoginForm()">Sudah punya akun? Login</a>
+            </div>
+        </div>
+
+        <!-- Form Lupa Password -->
+        <div class="form-container" id="forgot-password-form">
+            <h2>Lupa Kata Sandi?</h2>
+            <form id="forgot-password" onsubmit="handleForgotPassword(event)">
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <button type="submit" class="btn">Kirim Permintaan Reset</button>
+            </form>
+            <div class="footer-links">
+                <a href="javascript:void(0)" onclick="showRegisterForm()">Kembali ke Daftar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLoginForm() {
+            document.getElementById('login-form').classList.add('active');
+            document.getElementById('register-form').classList.remove('active');
+            document.getElementById('forgot-password-form').classList.remove('active');
+        }
+
+        function showRegisterForm() {
+            document.getElementById('register-form').classList.add('active');
+            document.getElementById('login-form').classList.remove('active');
+            document.getElementById('forgot-password-form').classList.remove('active');
+        }
+
+        function showForgotPasswordForm() {
+            document.getElementById('forgot-password-form').classList.add('active');
+            document.getElementById('login-form').classList.remove('active');
+            document.getElementById('register-form').classList.remove('active');
+        }
+
+        function handleForgotPassword(event) {
+            event.preventDefault();
+            alert('Permintaan reset kata sandi telah dikirim. Anda akan diarahkan ke halaman Daftar.');
+
+            // Beralih ke form Daftar setelah mengirim permintaan reset
+            showRegisterForm();
+        }
+    </script>
+
+</body>
+</html>

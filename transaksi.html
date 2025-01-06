@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy-Book</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background: linear-gradient(45deg, white, #15238c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0396ff;
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            margin-right: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .transaction-form, .history {
+            margin-top: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+                text-align: center;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+
+            header nav ul li {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            input {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            th, td {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Peminjaman Buku Perpustakaan</h1>
+
+    <div class="transaction-form">
+        <h2>Pinjam Buku</h2>
+        <form id="borrowForm">
+            <label for="memberName">Nama Anggota:</label>
+            <input type="text" id="memberName" name="memberName" required>
+
+            <label for="bookTitle">Judul Buku:</label>
+            <input type="text" id="bookTitle" name="bookTitle" required>
+
+            <label for="borrowDate">Tanggal Pinjam:</label>
+            <input type="date" id="borrowDate" name="borrowDate" required>
+
+            <button type="submit">Pinjam</button>
+        </form>
+    </div>
+
+    <div class="history">
+        <h2>Riwayat Peminjaman</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Anggota</th>
+                    <th>Judul Buku</th>
+                    <th>Tanggal Pinjam</th>
+                </tr>
+            </thead>
+            <tbody id="historyTable">
+                <!-- Riwayat peminjaman akan ditambahkan di sini -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.getElementById('borrowForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const memberName = document.getElementById('memberName').value;
+        const bookTitle = document.getElementById('bookTitle').value;
+        const borrowDate = document.getElementById('borrowDate').value;
+
+        const historyTable = document.getElementById('historyTable');
+
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${memberName}</td>
+            <td>${bookTitle}</td>
+            <td>${borrowDate}</td>
+        `;
+
+        historyTable.appendChild(newRow);
+
+        // Bersihkan form
+        document.getElementById('borrowForm').reset();
+    });
+</script>
+</body>
+</html>
